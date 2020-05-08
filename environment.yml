@@ -1,0 +1,8 @@
+channels:
+  - conda-forge
+dependencies:
+  - ipyleaflet
+  - ipywidgets
+  - numpy
+  - pandas
+  - appmode
