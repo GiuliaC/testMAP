@@ -1,6 +1,7 @@
 channels:
   - conda-forge
 dependencies:
+  - pywin32
   - ipyleaflet
   - ipywidgets
   - geopy
