@@ -4,6 +4,6 @@ dependencies:
   - ipyleaflet
   - ipywidgets
   - geopy
-  - numpy
+  - numpy >=1.22.0
   - pandas
   - appmode
