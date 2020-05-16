@@ -3,7 +3,7 @@ channels:
 dependencies:
   - ipyleaflet
   - ipywidgets
-  - geopy
-  - numpy >=1.22.0
+  - geopy >=1.22.0
+  - numpy
   - pandas
   - appmode
