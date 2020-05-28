@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				// Add smooth scrolling to all links
+				$("a").on('click', function(event) {
+
+				// Make sure this.hash has a value before overriding default behavior
+				if (this.hash !== "") {
+					// Prevent default anchor click behavior
+					event.preventDefault();
+
+					// Store hash
+					var hash = this.hash;
+
+					// Using jQuery's animate() method to add smooth page scroll
+					// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+					$('html, body').animate({
+						scrollTop: $(hash).offset().top - 500px
+					}, 800, function(){
+				 
+					// Add hash (#) to URL when done scrolling (default click behavior)
+					window.location.hash = hash;
+					});
+				} // End if
+				});
+			});
+		</script>
+
+		<script type="text/javascript">
+			function startPopup() {
+				alert("Le chargement peut prendre plusieurs dizaine de secondes. Il est conseillé de lancer l'ouverture de la carte avant visionnage de la video d'explication.")
+			}
+			function getCurrentDateTime() {
+				return new Date(new Date().getTime());
+			}
+		</script>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				background-color: #f1f1f1;
+				font-family: Arial, Helvetica, sans-serif;
+				overflow-y: scroll; /* Add the ability to scroll */
+			}
+
+			/* Hide scrollbar for Chrome, Safari and Opera */
+			body::-webkit-scrollbar {
+				display: none;
+			}
+
+			/* Hide scrollbar for IE and Edge */
+			body {
+				-ms-overflow-style: none;
+			}
+
+			.header-container {
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 1;
+				width: 100%;
+				height: 108px;
+				background-color: #f1f1f1;
+			}
+
+			.header {
+				position: fixed;
+				top: 0;
+				z-index: 1;
+				width: 65.8%;
+				height: 108px;
+				background-color: #f1f1f1;
+			}
+
+			.header h2 {
+				text-align: center;
+			}
+
+			.progress-container {
+				width: 100%;
+				height: 8px;
+				background: #ccc;
+			}
+
+			.progress-bar {
+				height: 8px;
+				background: #4caf50;
+				width: 0%;
+			}
+
+			.regForm {
+				background-color: #ffffff;
+				margin: 108px 15%;
+				font-family: Raleway;
+				padding: 1.75%;
+				padding-top: 0%;
+			}
+
+			h1 {
+				text-align: center;  
+			}
+
+			hr {
+				border: 3px solid #b3fee6;
+				border-radius: 5px;
+			}
+
+			.btn {
+			  background-color: gray;
+			  font-size: 16px;
+			  color: white;
+			  border: none;
+			  outline: none;
+			  padding-top: 3px;
+			  padding-left: 10px;
+			  padding-right: 10px;
+			  padding-bottom: 2px;
+			}
+
+			.dropdown {
+			  position: absolute;
+			  display: inline-block;
+			}
+
+			.dropdown-content {
+			  display: none;
+			  position: absolute;
+			  background-color: #f1f1f1;
+			  min-width: 160px;
+			  z-index: 1;
+			}
+
+			.dropdown-content a {
+			  color: black;
+			  padding: 12px 16px;
+			  text-decoration: none;
+			  display: block;
+			}
+
+			.dropdown-content a:hover {background-color: #ddd}
+
+			.dropdown:hover .dropdown-content {
+			  display: block;
+			}
+
+			.btn:hover, .dropdown:hover .btn {
+			  background-color: #b3fee6;
+			  color: black;
+			}			
+
+			.tablink {
+				background-color: #555;
+				color: white;
+				float: left;
+				border: none;
+				outline: none;
+				cursor: pointer;
+				padding: 14px 16px;
+				font-size: 17px;
+				width: 33.3333%;
+				height: 10%;
+			}
+
+			.tablink:hover {
+				background-color: #777;
+			}
+
+			/* Style the tab content */
+			.tabcontent {
+				color: white;
+				display: none;
+				padding: 50px;
+				text-align: center;
+				height: 90%;
+			}
+
+			#Screenshots {background-color:#b3fee6;}
+			#Video {background-color:#b3fee6;}
+			#Texte {background-color:#b3fee6;}
+
+			#UGtab {
+				margin-top: 1px;
+				height: 570px;
+			}
+
+			#TUTOtab {
+				background-image: url("high-tech-185146_640.jpg");
+				margin-top: 10px;
+				padding: 5% 5% 5% 5%;
+				height: 400px;
+				text-align: center;
+				vertical-align: center;
+				color: white;
+			}
+			
+			#FORMtab {
+				background-image: url("texture-1668079_1280.jpg");
+				margin-top: 10px;
+				padding: 5% 5% 5% 5%;
+				margin-top: 10px;
+				height: 570px;
+				vertical-align: center;
+			}
+
+			#MAILtab {
+				background-image: url("puzzle-3223941_1280.jpg");
+				margin-top: 10px;
+				padding: 5% 5% 5% 5%;
+				height: 400px;
+				vertical-align: center;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+	<!-- The Main Interface -->
+		
+		<div id="maindiv" style="display: block">
+
+		<!-- User Form -->
+		
+			<div class="regForm">
+
+			<!-- Fixed TOP -->
+
+				<div class="header-container">
+				</div>
+
+				<div class="header">
+					<h1>GPS à vol d'oiseau</h1>
+
+					<div align=center>
+						<a class='btn' onclick='open_new_window()'>Ouvrir la carte</a>
+						<div class="dropdown">
+						  <a class='btn' style="border-left:1px solid #0d8bf2">
+							<i class="fa fa-caret-down"></i>
+						  </a>
+						  <div class="dropdown-content">
+							<a onclick='open_new_window()'>Dans une nouvelle fenetre (default)</a>
+							<a onclick='open_new_tab()'>Dans un novel onglet</a>
+						  </div>
+						</div>
+					</div>
+
+					<div class="progress-container">
+						<div class="progress-bar" id="scrollBar"></div>
+					</div>  
+					
+				</div>
+			  
+			<!-- Fixed BOTTOM -->
+				
+				<br><br>
+				<div id="topPg"></div>
+
+				<div id='UGtab'>
+					<div id="Screenshots" class="tabcontent">
+						<h1>Guide Utilisateur en Images</h1>
+					</div>
+
+					<div id="Video" class="tabcontent">
+						<h1>Guide Utilisateur en Video</h1>
+					</div>
+
+					<div id="Texte" class="tabcontent">
+						<h1>Guide Utilisateur Textuel</h1>
+					</div>
+
+					<button class="tablink" onclick="openUG('Screenshots', this, '#b3fee6')" id="defaultOpen">Screenshots</button>
+					<button class="tablink" onclick="openUG('Video', this, '#b3fee6')">Video</button>
+					<button class="tablink" onclick="openUG('Texte', this, '#b3fee6')">Texte</button>
+				</div>
+				
+				<div id='TUTOtab'>
+					<h2><a style="color:white" href='http://www.dsfords.com/' target="_blank" onclick="registerClickLink(this.href)">C'est quoi une App</a> </h2>
+					<p>Dans ce tutoriel cette app est utilisée comme base de compréhension de ce que est una application et comment ça marche.</p>
+				</div>
+
+				<div id='FORMtab'>
+					<h2>Qu'est-ce que t'en a pensé ?</h2>
+					<p>Cette application a été idée et developpée en des temps très courts. Cela implique que elle presente plusieurs points d'amelioration.</p>
+					<p>Donnes ton avis sur les functionnalitées que tu souhaites et participe ainsi à son évolution !</p>
+				</div>
+
+				<div id='MAILtab'>
+					<h2>Partage avec moi ton avis</h2>
+					<form id="javascript_form">
+						<input type="text" name="subject" placeholder="Subject" style="width:100%" />
+						<br>
+						<textarea name="text" placeholder="Message" style="width:100%;height:150px;"></textarea>
+						<br>
+						<input type="text" name="reply_to" placeholder="Your Email" style="width:100%" />
+						<br>
+						<input type="submit" id="js_send" value="Send" />
+						<!-- not required, but we'd appreciate it if you'd link to us somewhere on your site -->
+						<p>Powered by <a href="https://postmail.invotes.com" target="_blank" onclick="registerClickLink(this.href)">PostMail</a></p>
+					</form>
+					
+				</div>
+				
+				<div align=center  id="bottomPg">
+					<a href="#topPg">Debut de page</a>
+				</div>
+				
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var outLog = "START : "+getCurrentDateTime();
+			window.onscroll = function() { scrollFunction() };
+			function scrollFunction() {
+				var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+				var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+				var scrolled = (winScroll / height) * 100;
+				document.getElementById("scrollBar").style.width = scrolled + "%";
+			}
+			function open_new_window() {
+				window.open('https://mybinder.org/v2/gh/GiuliaC/testMAP/master?urlpath=%2Fapps%2FappMAP.ipynb', 'targetWindow', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes');
+				outLog += '\n( '+getCurrentDateTime()+' ) Open map in new window'
+				return false;
+			}
+			function open_new_tab() {
+				window.open('https://mybinder.org/v2/gh/GiuliaC/testMAP/master?urlpath=%2Fapps%2FappMAP.ipynb', '_blank');
+				outLog += '\n( '+getCurrentDateTime()+' ) Open map in new tab'
+				return false;
+			}
+			function openUG(UGType,elmnt,color) {
+				var i, tabcontent, tablinks;
+				tabcontent = document.getElementsByClassName("tabcontent");
+				for (i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = "none";
+				}
+				tablinks = document.getElementsByClassName("tablink");
+				for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].style.backgroundColor = "";
+					tablinks[i].style.color = "white";
+				}
+				document.getElementById(UGType).style.display = "block";
+				elmnt.style.backgroundColor = color;
+				elmnt.style.color = "black";
+				outLog += '\n( '+getCurrentDateTime()+' ) UG open as '+UGType
+			}
+			// Get the element with id="defaultOpen" and click on it
+			document.getElementById("defaultOpen").click();
+			
+			function registerClickLink(visited_href) {
+				outLog += '\n( '+getCurrentDateTime()+' ) Visit link '+visited_href
+			}
+			
+			//update this with your js_form selector
+			var form_id_js = "javascript_form";
+
+			var data_js = {
+				"access_token": "588kewti9zctb0kmm4zyy88m"
+			};
+
+			var sendButton = document.getElementById("js_send");
+
+			function js_onSuccess() {
+				// remove this to avoid redirect
+				//window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
+				sendButton.value='Sent !';
+			}
+
+			function js_onError(error) {
+				// remove this to avoid redirect
+				//window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
+				alert("Une erreure est survenue, le mail n'a pas été envoyé.");
+				sendButton.value='Send';
+				sendButton.disabled=false;
+			}
+
+			function js_send() {
+				sendButton.value='Sending…';
+				sendButton.disabled=true;
+				var request = new XMLHttpRequest();
+				request.onreadystatechange = function() {
+					if (request.readyState == 4 && request.status == 200) {
+						js_onSuccess();
+						outLog += '\n( '+getCurrentDateTime()+' ) Mail sent'
+					} else
+					if(request.readyState == 4) {
+						js_onError(request.response);
+						outLog += '\n( '+getCurrentDateTime()+' ) Mail error'
+					}
+				};
+
+				var subject = document.querySelector("#" + form_id_js + " [name='subject']").value;
+				var message = document.querySelector("#" + form_id_js + " [name='text']").value;
+				var reply_to = document.querySelector("#" + form_id_js + " [name='reply_to']").value;
+				data_js['subject'] = subject;
+				data_js['text'] = message;
+				data_js['reply_to'] = reply_to;
+				var params = toParams(data_js);
+
+				request.open("POST", "https://postmail.invotes.com/send", true);
+				request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+				request.send(params);
+
+				return false;
+			}
+
+			sendButton.onclick = js_send;
+
+			function toParams(data_js) {
+				var form_data = [];
+				for ( var key in data_js ) {
+					form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(data_js[key]));
+				}
+
+				return form_data.join("&");
+			}
+
+			var js_form = document.getElementById(form_id_js);
+			js_form.addEventListener("submit", function (e) {
+				e.preventDefault();
+			});
+			
+			function LogOff() {
+				var request = new XMLHttpRequest();
+				request.onreadystatechange = function() {
+					if (request.readyState == 4 && request.status == 200) {
+						js_onSuccess();
+					} else
+					if(request.readyState == 4) {
+						js_onError(request.response);
+					}
+				};
+
+				var subject = "[GPSvdo] Auto Sent";
+				var message = outLog;
+				data_js['subject'] = subject;
+				data_js['text'] = message;
+				var params = toParams(data_js);
+
+				request.open("POST", "https://postmail.invotes.com/send", true);
+				request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+				request.send(params);
+
+				return false;
+			}
+		
+			window.onbeforeunload=LogOff
+
+		</script>
+		
+	</body>
+</html>
