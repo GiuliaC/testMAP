@@ -186,9 +186,9 @@
 				height: 90%;
 			}
 
-			#Screenshots {background-color:#b3fee6;}
-			#Video {background-color:#b3fee6;}
-			#Texte {background-color:#b3fee6;}
+			#Screenshots {background-image: url("texture-1668079_1280.jpg");}
+			#Video {background-image: url("texture-1668079_1280.jpg");}
+			#Texte {background-image: url("texture-1668079_1280.jpg");}
 
 			#UGtab {
 				margin-top: 1px;
@@ -206,19 +206,11 @@
 			}
 			
 			#FORMtab {
-				background-image: url("texture-1668079_1280.jpg");
-				margin-top: 10px;
-				padding: 5% 5% 5% 5%;
-				margin-top: 10px;
-				height: 570px;
-				vertical-align: center;
-			}
-
-			#MAILtab {
 				background-image: url("puzzle-3223941_1280.jpg");
 				margin-top: 10px;
 				padding: 5% 5% 5% 5%;
-				height: 400px;
+				margin-top: 10px;
+				height: 777px;
 				vertical-align: center;
 			}
 			
@@ -290,53 +282,78 @@
 				</div>
 
 				<div id='FORMtab'>
-					<h2>Qu'est-ce que t'en a pensé ?</h2>
+					<h1 style='color:blue'>Partage avec moi ton avis</h1>
 					<p>Cette application a été idée et developpée en des temps très courts. Cela implique que elle presente plusieurs points d'amelioration.</p>
 					<p>Donnes ton avis sur les functionnalitées que tu souhaites et participe ainsi à son évolution !</p>
-				</div>
-
-				<div id='MAILtab'>
-					<h2>Partage avec moi ton avis</h2>
 					<form id="javascript_form">
-						<input type="text" name="subject" placeholder="Subject" style="width:100%" />
+						<h3 style='color:blue'>Qu'est-ce que t'as pensé de l'app ?</h3>
+						<select name="subject" style="width:100%">
+							<option value="" disabled selected>J'ai trouvé l'app...</option>
+							<option value="5/5">Très satisfaisante</option>
+							<option value="4/5">Satisfaisante</option>
+							<option value="3/5">À admeliorer</option>
+							<option value="2/5">Pas très satisfaisante</option>
+							<option value="1/5">Pas satisfaisante</option>
+						</select>
 						<br>
-						<textarea name="text" placeholder="Message" style="width:100%;height:150px;"></textarea>
+						<h3 style='color:blue'>Quelle évolution renderait l'app plus interessante pour toi ?</h3>
+						<input type="text" name="evolution" placeholder="Indique une ou plus fonctionnalitées souhaitées" style="width:100%" />
 						<br>
-						<input type="text" name="reply_to" placeholder="Your Email" style="width:100%" />
+						<h3 style='color:blue'>Ton avis m'interesse !</h3>
+						<textarea name="text" placeholder="Ajouter un commentaire" style="width:100%;height:150px;"></textarea>
 						<br>
-						<input type="submit" id="js_send" value="Send" />
-						<!-- not required, but we'd appreciate it if you'd link to us somewhere on your site -->
-						<p>Powered by <a href="https://postmail.invotes.com" target="_blank" onclick="registerClickLink(this.href)">PostMail</a></p>
+						<h3 style='color:blue'>Laisses-moi ton adresse email pour être informé lorsque l'app évolue</h3>
+						<input type="text" name="reply_to" placeholder="Email" style="width:100%" />
+						<br><br>
+						<div align=center>
+							<input type="submit" id="js_send" value="Envoyer la saisie" style="font-size:30px;padding:5px;color:blue;" />
+							<!-- not required, but we'd appreciate it if you'd link to us somewhere on your site -->
+							<p>Powered by <a href="https://postmail.invotes.com" target="_blank" onclick="registerClickLink(this.href)">PostMail</a></p>
+						</div>
 					</form>
 					
 				</div>
 				
+				<hr>
+
 				<div align=center  id="bottomPg">
 					<a href="#topPg">Debut de page</a>
+					<hr>
+					<br><br>
+					<textarea id="textOUT" disabled="true" style="width:80%;height:400px;">Pour des raisons de manutention du site un mail sera envoyé à son develeupper lors de la fermature de la page avec les informations suivantes :
+					</textarea>
 				</div>
-				
+								
 			</div>
 		</div>
 		
 		<script type="text/javascript">
 			var outLog = "START : "+getCurrentDateTime();
+			document.getElementById("textOUT").innerHTML = document.getElementById("textOUT").innerHTML + '\n'+outLog
+			function updateOut(cur_msg) {
+				document.getElementById("textOUT").innerHTML = document.getElementById("textOUT").innerHTML + cur_msg
+				outLog += cur_msg
+			};
+			
 			window.onscroll = function() { scrollFunction() };
 			function scrollFunction() {
 				var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
 				var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 				var scrolled = (winScroll / height) * 100;
 				document.getElementById("scrollBar").style.width = scrolled + "%";
-			}
+			};
+			
 			function open_new_window() {
 				window.open('https://mybinder.org/v2/gh/GiuliaC/testMAP/master?urlpath=%2Fapps%2FappMAP.ipynb', 'targetWindow', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes');
-				outLog += '\n( '+getCurrentDateTime()+' ) Open map in new window'
+				updateOut('\n( '+getCurrentDateTime()+' ) Open map in new window');
 				return false;
-			}
+			};
 			function open_new_tab() {
 				window.open('https://mybinder.org/v2/gh/GiuliaC/testMAP/master?urlpath=%2Fapps%2FappMAP.ipynb', '_blank');
-				outLog += '\n( '+getCurrentDateTime()+' ) Open map in new tab'
+				updateOut('\n( '+getCurrentDateTime()+' ) Open map in new tab');
 				return false;
-			}
+			};
+			
 			function openUG(UGType,elmnt,color) {
 				var i, tabcontent, tablinks;
 				tabcontent = document.getElementsByClassName("tabcontent");
@@ -345,65 +362,67 @@
 				}
 				tablinks = document.getElementsByClassName("tablink");
 				for (i = 0; i < tablinks.length; i++) {
-					tablinks[i].style.backgroundColor = "";
+					tablinks[i].style.backgroundImage = "";
 					tablinks[i].style.color = "white";
 				}
 				document.getElementById(UGType).style.display = "block";
-				elmnt.style.backgroundColor = color;
+				elmnt.style.backgroundImage = "url('texture-1668079_1280.jpg')";
 				elmnt.style.color = "black";
-				outLog += '\n( '+getCurrentDateTime()+' ) UG open as '+UGType
-			}
+				updateOut('\n( '+getCurrentDateTime()+' ) UG open as '+UGType);
+			};
 			// Get the element with id="defaultOpen" and click on it
 			document.getElementById("defaultOpen").click();
 			
 			function registerClickLink(visited_href) {
-				outLog += '\n( '+getCurrentDateTime()+' ) Visit link '+visited_href
-			}
-			
-			//update this with your js_form selector
-			var form_id_js = "javascript_form";
-
-			var data_js = {
-				"access_token": "588kewti9zctb0kmm4zyy88m"
+				updateOut('\n( '+getCurrentDateTime()+' ) Visit link '+visited_href);
 			};
 
 			var sendButton = document.getElementById("js_send");
+			var form_id_js = "javascript_form";
 
 			function js_onSuccess() {
 				// remove this to avoid redirect
 				//window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
-				sendButton.value='Sent !';
-			}
+				alert("Le mail a bien été envoyé, merci !");
+				sendButton.value='Envoyer la saisie';
+				sendButton.disabled=false;
+			};
 
 			function js_onError(error) {
 				// remove this to avoid redirect
 				//window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
-				alert("Une erreure est survenue, le mail n'a pas été envoyé.");
-				sendButton.value='Send';
+				alert("Vous etes nombreux à visiter la page aujourd'hui, le mail n'a pas été envoyé.");
+				sendButton.value='Envoyer la saisie';
 				sendButton.disabled=false;
-			}
+			};
 
-			function js_send() {
+			function PostMail_send(fromUser,subject,message,reply_to) {
 				sendButton.value='Sending…';
 				sendButton.disabled=true;
 				var request = new XMLHttpRequest();
 				request.onreadystatechange = function() {
 					if (request.readyState == 4 && request.status == 200) {
 						js_onSuccess();
-						outLog += '\n( '+getCurrentDateTime()+' ) Mail sent'
+						if (fromUser) {
+							updateOut('\n( '+getCurrentDateTime()+' ) Mail sent\n'+message);
+						}
 					} else
 					if(request.readyState == 4) {
 						js_onError(request.response);
-						outLog += '\n( '+getCurrentDateTime()+' ) Mail error'
+						if (fromUser) {
+							updateOut('\n( '+getCurrentDateTime()+' ) Mail error\n'+message);
+						}
 					}
 				};
-
-				var subject = document.querySelector("#" + form_id_js + " [name='subject']").value;
-				var message = document.querySelector("#" + form_id_js + " [name='text']").value;
-				var reply_to = document.querySelector("#" + form_id_js + " [name='reply_to']").value;
+				
+				var data_js = {
+					"access_token": "588kewti9zctb0kmm4zyy88m"
+				};
 				data_js['subject'] = subject;
 				data_js['text'] = message;
-				data_js['reply_to'] = reply_to;
+				if (reply_to) {
+					data_js['reply_to'] = reply_to;
+				}
 				var params = toParams(data_js);
 
 				request.open("POST", "https://postmail.invotes.com/send", true);
@@ -412,9 +431,7 @@
 				request.send(params);
 
 				return false;
-			}
-
-			sendButton.onclick = js_send;
+			};
 
 			function toParams(data_js) {
 				var form_data = [];
@@ -423,7 +440,27 @@
 				}
 
 				return form_data.join("&");
-			}
+			};
+
+			function js_send() {
+				var usr_subject = document.querySelector("#" + form_id_js + " [name='subject']").value;
+				var usr_evolution = document.querySelector("#" + form_id_js + " [name='evolution']").value;
+				var usr_message = document.querySelector("#" + form_id_js + " [name='text']").value;
+				var usr_reply_to = document.querySelector("#" + form_id_js + " [name='reply_to']").value;
+				var cur_subject = "[GPSvdo] User Sent";
+				var cur_message = getCurrentDateTime();
+				if (usr_subject || usr_evolution || usr_message || usr_reply_to) {
+					if (usr_subject) { cur_message += '\n Evaluation : '+usr_subject }
+					if (usr_evolution) { cur_message += '\n Evolution : '+usr_evolution }
+					if (usr_message) { cur_message += '\n Comment : '+usr_message }
+					if (usr_reply_to) { cur_message += '\n Email : '+usr_reply_to }
+					PostMail_send(true,cur_subject,cur_message,usr_reply_to)
+				} else {
+					alert("Aucun element renseigné, le mail n'a pas été envoyé")
+				}
+			};
+
+			sendButton.onclick = js_send;
 
 			var js_form = document.getElementById(form_id_js);
 			js_form.addEventListener("submit", function (e) {
@@ -431,29 +468,10 @@
 			});
 			
 			function LogOff() {
-				var request = new XMLHttpRequest();
-				request.onreadystatechange = function() {
-					if (request.readyState == 4 && request.status == 200) {
-						js_onSuccess();
-					} else
-					if(request.readyState == 4) {
-						js_onError(request.response);
-					}
-				};
-
-				var subject = "[GPSvdo] Auto Sent";
-				var message = outLog;
-				data_js['subject'] = subject;
-				data_js['text'] = message;
-				var params = toParams(data_js);
-
-				request.open("POST", "https://postmail.invotes.com/send", true);
-				request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-				request.send(params);
-
-				return false;
-			}
+				var cur_subject = "[GPSvdo] Auto Sent";
+				var cur_message = outLog;
+				PostMail_send(false,cur_subject,cur_message,false)
+			};
 		
 			window.onbeforeunload=LogOff
 
