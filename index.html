@@ -51,6 +51,8 @@
 
 			body {
 				background-color: #f1f1f1;
+				background-image: url('Map.png');
+				background-size: 150%;
 				font-family: Arial, Helvetica, sans-serif;
 				overflow-y: scroll; /* Add the ability to scroll */
 			}
@@ -63,6 +65,125 @@
 			/* Hide scrollbar for IE and Edge */
 			body {
 				-ms-overflow-style: none;
+			}
+
+			.notes {
+				margin-bottom: 15px;
+				padding: 4px 12px;
+				color: black;
+			}
+
+			.danger {
+				background-color: #ffdddd;
+				border-left: 6px solid #f44336;
+			}
+
+			.success {
+				background-color: #ddffdd;
+				border-left: 6px solid #4CAF50;
+			}
+
+			.info {
+				background-color: #e7f3fe;
+				border-left: 6px solid #2196F3;
+			}
+
+			.warning {
+				background-color: #ffffcc;
+				border-left: 6px solid #ffeb3b;
+			}
+
+			.cutout-text {
+				background-color: green;
+				color: white;
+				font-size: 2vw; 
+				font-weight: bold;
+				margin: 0 auto;
+				padding: 10px;
+				width: 50%;
+				text-align: center;
+				mix-blend-mode: multiply;
+			}
+
+			.flip-card-container {
+				margin: 2%;
+				text-align: center;
+			}
+
+			.flip-card {
+				margin: 2%;
+				background-color: transparent;
+				width: 300px;
+				height: 300px;
+				perspective: 1000px;
+				display: inline-block;
+			}
+
+			.centered {
+				color: #2980b9;
+				text-shadow: 2px 2px 5px white;
+				font-size: 3vw; 
+				font-weight: bold;
+				margin: 0 auto;
+				padding: 1px;
+				width: 80%;
+				text-align: center;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			.flip-card-inner {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				transition: transform 0.6s;
+				transform-style: preserve-3d;
+				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			}
+
+			.flip-card:hover .flip-card-inner {
+				transform: rotateY(180deg);
+			}
+
+			.flip-card-front, .flip-card-back {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+			}
+
+			.flip-card-front {
+				background-color: #bbb;
+				color: black;
+			}
+
+			.flip-card-back {
+				background-color: #2980b9;
+				color: white;
+				transform: rotateY(180deg);
+			}
+
+			.flip-card-back-main {
+				padding-left: 3%;
+				padding-right: 3%;
+				padding-top: 2%;
+				padding-bottom: 8%;
+				margin: 0;
+				text-align: center;
+				font-size:16px;
+			}
+			.flip-card-back-sub {
+				padding-left: 5%;
+				padding-right: 5%;
+				padding-top: 0;
+				padding-bottom: 3%;
+				margin: 0;
+				text-align: left;
+				font-size:14px;
 			}
 
 			.header-container {
@@ -192,14 +313,14 @@
 
 			#UGtab {
 				margin-top: 1px;
-				height: 570px;
+				height: 800px;
 			}
 
 			#TUTOtab {
 				background-image: url("high-tech-185146_640.jpg");
 				margin-top: 10px;
 				padding: 5% 5% 5% 5%;
-				height: 400px;
+				height: 425px;
 				text-align: center;
 				vertical-align: center;
 				color: white;
@@ -214,13 +335,165 @@
 				vertical-align: center;
 			}
 			
+			img {
+				vertical-align: middle;
+			}
+
+			/* Position the image container (needed to position the left and right arrows) */
+			.container {
+				position: relative;
+			}
+
+			/* Hide the images by default */
+			.mySlides {
+				display: none;
+			}
+
+			/* Add a pointer when hovering over the thumbnail images */
+			.cursor {
+				cursor: pointer;
+			}
+
+			/* Next & previous buttons */
+			.prev,
+			.next {
+				cursor: pointer;
+				position: absolute;
+				top: 40%;
+				width: auto;
+				padding: 16px;
+				margin-top: -50px;
+				color: gray;
+				font-weight: bold;
+				font-size: 20px;
+				border-radius: 0 3px 3px 0;
+				user-select: none;
+				-webkit-user-select: none;
+			}
+
+			/* Position the "next button" to the right */
+			.next {
+				right: 0;
+				border-radius: 3px 0 0 3px;
+			}
+
+			.prev {
+				left: 0;
+				border-radius: 3px 0 0 3px;
+			}
+
+
+			/* On hover, add a black background color with a little bit see-through */
+			.prev:hover,
+			.next:hover {
+				background-color: rgba(0, 0, 0, 0.8);
+			}
+
+			/* Number text (1/3 etc) */
+			.numbertext {
+				color: gray;
+				font-size: 12px;
+				padding: 8px 12px;
+				position: absolute;
+				top: 0;
+			}
+
+			/* Container for image text */
+			.caption-container {
+				text-align: center;
+				background-color: #222;
+				padding: 2px 16px;
+				color: white;
+			}
+
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+
+			/* Six columns side by side */
+			.column {
+				float: left;
+				width: 10%;
+			}
+
+			/* Add a transparency effect for thumnbail images */
+			.demo {
+				opacity: 0.6;
+			}
+
+			.active,
+			.demo:hover {
+				opacity: 1;
+			}
 		</style>
 	</head>
 
 	<body>
 	<!-- The Main Interface -->
+
+		<div id="enterdiv" style="display: block;" align=center>
+			<h1 style="font-size:60px">GPS à vol d'oiseau</h1>
+			
+			<div class="notes info">
+				<p><strong>Info : </strong>Ce site n'utilise pas de cookies. Les informations envoyées au developpeur, pour des raisons de manutention, sont reportées en temps réel au pied de la page. </p>
+			</div>
+
+			<div class="flip-card-container">
+				<h1 class="cutout-text">Bienvenue, voici ce qui t'attend ici !</h1>
+				<div class="flip-card" onmouseover="registerHoverCard('GPSUG')">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="App.png" alt="GPSUG" style="width:300px;height:300px;">
+							<div class="centered">App & Guide Utilisateur</div>
+						</div>
+						<div class="flip-card-back">
+							<h3>App & Guide Utilisateur</h3> 
+							<p class="flip-card-back-main">Découvres le GPS à vol d'oiseau sous la forme qui te convient le mieux, grace à 3 guides utilisateurs. </p>
+							<p class="flip-card-back-sub"><b>En images :</b> 10 captures pour expliquer les fonctionnalitées de l'app;</p>
+							<p class="flip-card-back-sub"><b>En video :</b> 10 minutes de video, à regarder avec commentaires audios ou textuels;</p>
+							<p class="flip-card-back-sub"><b>Textuel :</b> un format plus classique de description des fonctionnalité, avec pop-up de détails techniques.</p>
+						</div>
+					</div>
+				</div>
+				<div class="flip-card" onmouseover="registerHoverCard('TUTO')">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="high-tech-185146_640.jpg" alt="TUTO" style="width:300px;height:300px;">
+							<div class="centered" style="color:white;">C'est quoi une App ?</div>
+						</div>
+						<div class="flip-card-back">
+							<h3>C'est quoi une App ?</h3> 
+							<p class="flip-card-back-main">Reparcours les étapes de dévéloppement et distribution de cette app dans un tutoriel, disponible sous 3 formes selon tes besoins. </p>
+							<p class="flip-card-back-sub"><b>Curieux :</b> pour s'initier aux elements qui composent une app;</p>
+							<p class="flip-card-back-sub"><b>Initié :</b> pour être capable de developper cette app et son site de distribution;</p>
+							<p class="flip-card-back-sub"><b>Expert :</b> pour connaitre les solutions de dévéloppement et distributions choisies ici.</p>
+						</div>
+					</div>
+				</div>
+				<div class="flip-card" onmouseover="registerHoverCard('MAIL')">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="puzzle-3223941_1280.jpg" alt="MAIL" style="width:300px;height:300px;">
+							<div class="centered">Partage avec moi ton avis</div>
+						</div>
+						<div class="flip-card-back">
+							<h3>Partage avec moi ton avis</h3> 
+							<p class="flip-card-back-main">Participes à l'évolution de cette app en renseignat une ou plusierus des infos demandées.</p>
+							<p class="flip-card-back-sub"><b>Evaluation :</b> permet d'avoir une idée de l'interet sucité par cette app pour décider de son évolution;</p>
+							<p class="flip-card-back-sub"><b>Souhaits :</b> permet d'identifier les axes d'évolutions à prioriser;</p>
+							<p class="flip-card-back-sub"><b>Commentaires :</b> permet d'avoir une vision plus détailée des axes d'évolution.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<a class='btn' onclick='show_main()'>Commencer</a>
+			<br><br>
+		</div>
 		
-		<div id="maindiv" style="display: block">
+		<div id="maindiv" style="display: none">
 
 		<!-- User Form -->
 		
@@ -261,14 +534,143 @@
 				<div id='UGtab'>
 					<div id="Screenshots" class="tabcontent">
 						<h1>Guide Utilisateur en Images</h1>
+						<div class="container">
+							<div class="mySlides">
+								<div class="numbertext">1 / 10</div>
+								<img src="https://www.dropbox.com/s/t7pnetpzfvtbthu/img1.png?raw=1" style="width:100%">
+							</div>
+							<div class="mySlides">
+								<div class="numbertext">2 / 10</div>
+								<img src="https://www.dropbox.com/s/sti66ztkf5sp65b/img2.png?raw=1" style="width:100%">
+							</div>
+							<div class="mySlides">
+								<div class="numbertext">3 / 10</div>
+								<img src="https://www.dropbox.com/s/3va0815259pfdkr/img3.png?raw=1" style="width:100%">
+							</div>
+							<div class="mySlides">
+								<div class="numbertext">4 / 10</div>
+								<img src="https://www.dropbox.com/s/tw6eyvme4xflpj0/img4.png?raw=1" style="width:100%">
+							</div>
+							<div class="mySlides">
+								<div class="numbertext">5 / 10</div>
+								<img src="https://www.dropbox.com/s/efmlhzk1ux5ovd6/img5.png?raw=1" style="width:100%">
+							</div>
+							<div class="mySlides">
+								<div class="numbertext">6 / 10</div>
+								<img src="https://www.dropbox.com/s/rzmpj4ibmwbl57n/img6.png?raw=1" style="width:100%">
+							</div>
+							<div class="mySlides">
+								<div class="numbertext">7 / 10</div>
+								<img src="https://www.dropbox.com/s/evydvnaxts9kpth/img7.png?raw=1" style="width:100%">
+							</div>
+							<div class="mySlides">
+								<div class="numbertext">8 / 10</div>
+								<img src="https://www.dropbox.com/s/zr5wrfa9aqxtr13/img8.png?raw=1" style="width:100%">
+							</div>
+							<div class="mySlides">
+								<div class="numbertext">9 / 10</div>
+								<img src="https://www.dropbox.com/s/54e0yba2v7o2b5e/img9.png?raw=1" style="width:100%">
+							</div>
+							<div class="mySlides">
+								<div class="numbertext">10 / 10</div>
+								<img src="https://www.dropbox.com/s/6z6g0a5h7sl0pbr/img10.png?raw=1" style="width:100%">
+							</div>
+
+							<a class="prev" onclick="plusSlides(-1)"><</a>
+							<a class="next" onclick="plusSlides(1)">></a>
+
+							<div class="caption-container">
+								<p id="caption"></p>
+							</div>
+
+							<div class="row">
+								<div class="column">
+									<img class="demo cursor" src="https://www.dropbox.com/s/rldj65twplq4zw5/img1_demo.png?raw=1" style="width:100%" onclick="currentSlide(1)" 
+									alt="L'application est hebergée sur <b style='font-size:18px;'>Binder</b>, les temps d'ouverture peuvent donc varier de quelques milliseconds à plusieurs minutes 
+									et cela depend d'un grand nombre de facteurs.
+									<b>Pas d'inquietudes, cette page est là pour t'entraitenir en attendant l'ouverture !</b>
+									<br>
+									<br><b>ATTENTION</b> : Binder ferme la session après quelques minutes d'inactivité, veilles donc à ne pas laisser la carte en arrier plan trop long temps.
+									Si tu souhaites sourveiller l'ouverture tu peux choisir l'<b>ouverture dans un nouvel onglet</b> dans la liste deroulante.
+									<br>Lorsque un petit livre orange apparait dans le titre de l'onglet la carte est prête.">
+								</div>
+								<div class="column">
+									<img class="demo cursor" src="https://www.dropbox.com/s/viyi9iovj4ohnze/img2_demo.png?raw=1" style="width:100%" onclick="currentSlide(2)" 
+									alt="<b style='font-size:18px;'>La selection du pays</b> dans la liste deroulante centre la carte sur le pays. 
+									<br>Cette selection peut aussi être effectuée en <b>cliquant sur la carte</b> un point quelconque de la surface du pays souhaité.
+									<br>De plus, <b>lorsque une adresse est cherchée</b> (voir le slide suivant) cette selection est effectuée automatiquement si besoin.
+									<br>
+									<br>L'application est construite pour la France en priorité, cependant la plus part des fonctionnalitées sont disponibles pour le monde entier.
+									Pour la France, l'app est enrichie par l'utilisation de la donnée OpenSource de la BAN (voir slide 5 et 9).
+									">
+								</div>
+								<div class="column">
+									<img class="demo cursor" src="https://www.dropbox.com/s/9xns9z3ft6ofzdq/img3_demo.png?raw=1" style="width:100%" onclick="currentSlide(3)" 
+									alt="<b style='font-size:18px;'>La recherche d'une adresse</b> peut être effectuée aussi bien par saisie que par click sur la carte.
+									<br>
+									<br>Dans le premier cas, <b>l'adresse saisie</b> est traitée, à l'aide de services web de geocodage, lorsque le <b>buton Chercher</b> est cliqué. 
+									<br>La saisie peut être partielle, cependant pour tout pays autre que la France plus de precision peut être necessaire.
+									<br>Dans le deuxième cas, ce sont <b>les coordonnées de l'endroit cliqué</b> qui sont traitées à l'aide de services web de geocodage.
+									<br>Il est conseillé d'augmenter le zoom de la carte pour une selection plus precise.">
+								</div>
+								<div class="column">
+									<img class="demo cursor" src="https://www.dropbox.com/s/ncgm3sr6ssjmgn9/img4_demo.png?raw=1" style="width:100%" onclick="currentSlide(4)" 
+									alt="Lorsque une recherche est effectuée, que ce soit par saisie ou par click, <b style='font-size:18px;'>le resultat à valider</b> est proposé.
+									<br>Si la recherche est effectué par <b>saisie</b>, le texte est enregistré pour reutilisation pendant la session.
+									<br>
+									<br>Ce resultat incluent les adresses trouvées via deux <b>API de geocodage</b> mises à disposition par 
+									<br>OpenStreetMap et la Base Adresse Nationale France (BANFrance). 
+									<br>La ou les adresses trouvées sont representées par des <b>points sur la carte</b>. C'est point sont cliquables.">
+								</div>
+								<div class="column">
+									<img class="demo cursor" src="https://www.dropbox.com/s/owbvsnpidgoc4oc/img5_demo.png?raw=1" style="width:100%" onclick="currentSlide(5)" 
+									alt="Lorsque une recherche est effectuée, que ce soit par saisie ou par click, <b style='font-size:18px;'>le buton Valider</b> remplace celui de recherche.
+									<br>Cela permet de visualiser le rayon pour l'adresse dans <b>la case à valider</b>. 
+									<br>
+									<br>Si une seule adresse est trouvée elle est rentrée automatiquement dans la case à valider. 
+									<br>Autrement cette case peut être remplie soit en choisissant dans la <b>liste deroulante</b> soit en cliquant l'un des <b>points affichés</b> sur la carte.
+									<br>La liste reporte en premier les resultats BAN si l'app detecte que l'adresse est en France, ceux OpenStreetMap autrement.">
+								</div>
+								<div class="column">
+									<img class="demo cursor" src="https://www.dropbox.com/s/m9qllhio830wx3q/img6_demo.png?raw=1" style="width:100%" onclick="currentSlide(6)" 
+									alt="<br><br>Step 6<br>Coming soon<br><br><br>">
+								</div>
+								<div class="column">
+									<img class="demo cursor" src="https://www.dropbox.com/s/d82g1gv1w2ch1wf/img7_demo.png?raw=1" style="width:100%" onclick="currentSlide(7)" 
+									alt="<br><br>Step 7<br>Coming soon<br><br><br>">
+								</div>
+								<div class="column">
+									<img class="demo cursor" src="https://www.dropbox.com/s/1k3b7h9jl6lrzs9/img8_demo.png?raw=1" style="width:100%" onclick="currentSlide(8)" 
+									alt="<br><br>Step 8<br>Coming soon<br><br><br>">
+								</div>
+								<div class="column">
+									<img class="demo cursor" src="https://www.dropbox.com/s/xn0qy4ic0c7zslv/img9_demo.png?raw=1" style="width:100%" onclick="currentSlide(9)" 
+									alt="<br><br>Step 9<br>Coming soon<br><br><br>">
+								</div>
+								<div class="column">
+									<img class="demo cursor" src="https://www.dropbox.com/s/d4utcf3husocw26/img10_demo.png?raw=1" style="width:100%" onclick="currentSlide(10)" 
+									alt="<br><br>Step 10<br>Coming soon<br><br><br>">
+								</div>
+							</div>
+						</div>
 					</div>
 
 					<div id="Video" class="tabcontent">
 						<h1>Guide Utilisateur en Video</h1>
+						<div class="notes warning" style="position:absolute; width:60%;">
+							<p><strong>Attention : </strong>La version video est en cours de réalisation. Voici une version non commentée en l'attente des guides utilisateurs complets.                                                                                                                                    </p>
+						</div>
+						<video width="95%" controls>
+							<source src="https://www.dropbox.com/s/78rne1ts3slth3h/video1.mp4?raw=1" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
 					</div>
 
 					<div id="Texte" class="tabcontent">
 						<h1>Guide Utilisateur Textuel</h1>
+						<div class="notes warning">
+							<p><strong>Attention : </strong>La version textuelle est en cours de réalisation. </p>
+						</div>
 					</div>
 
 					<button class="tablink" onclick="openUG('Screenshots', this, '#b3fee6')" id="defaultOpen">Screenshots</button>
@@ -277,8 +679,17 @@
 				</div>
 				
 				<div id='TUTOtab'>
-					<h2><a style="color:white" href='http://www.dsfords.com/' target="_blank" onclick="registerClickLink(this.href)">C'est quoi une App</a> </h2>
-					<p>Dans ce tutoriel cette app est utilisée comme base de compréhension de ce que est una application et comment ça marche.</p>
+					<h1><a style="color:white" href='http://www.dsfords.com/' target="_blank" onclick="registerClickLink(this.href)">C'est quoi une App</a> </h1>
+					<p style="font-size:18px;padding:1px;margin:0;">Te demandes-tu ce qu'est une app et comment cela marche ? </p>
+					<p style="font-size:18px;padding:1px;margin:0;">Souhaites-tu developper et/ou distribuer une app ?</p>
+					<p style="font-size:18px;padding:1px;margin:0;">Cherches-tu des solutions gratuites de developpement et/ou distribution d'une app ?</p>
+					<p style="font-size:24px;color:blue;"><b>Cette page est faite pour toi !</b></p>
+					<p style="padding:1px;margin:0;">Cliques sur le titre et viens parcourir les étapes de dévéloppement et distribution de cette app dans un tutoriel qui s'adapte à tes besoins.</p>
+					<p style="padding:1px;margin:0;">Tu y trouveras 3 tutoriels, relatant le travail de développement du GPS à vol d'oiseau dans l'objectif qui t'interesse.</p>
+					<br>
+					<p style="padding:1px;margin:0;">Tu pourras avoir une idée de ce qu'est une app, dans un tutoriel qui ne demande pas d'avoir de connaissances préalables.</p>
+					<p style="padding:1px;margin:0;"><b>Ou</b> developper toi même le GPS et cette page de distribution, dans un tutoriel qui demande d'avoir au moins des bases.</p>
+					<p style="padding:1px;margin:0;"><b>Ou</b> évaluer la combinaison de solutions gratuites choisie ici, dans un tutoriel destiné aux experts.</p>
 				</div>
 
 				<div id='FORMtab'>
@@ -314,16 +725,18 @@
 					
 				</div>
 				
-				<div align=center  id="bottomPg">
+				<div align=center>
+					<br><br>
 					<hr>
 					<a href="#topPg">Debut de page</a>
-					<hr>
-					<br><br>
-					<textarea id="textOUT" disabled="true" style="width:90%;height:400px;">Pour des raisons de manutention du site un mail sera envoyé à son develeupper lors de la fermature de la page avec les informations suivantes :
-					</textarea>
 				</div>
 								
 			</div>
+		</div>
+
+		<div align=center  id="bottomPg">
+			<textarea id="textOUT" disabled="true" style="width:90%;height:400px;">Pour des raisons de manutention du site un mail sera envoyé à son develeupper lors de la fermeture de la page avec les informations suivantes :
+			</textarea>
 		</div>
 		
 		<script type="text/javascript">
@@ -332,6 +745,15 @@
 			function updateOut(cur_msg) {
 				document.getElementById("textOUT").innerHTML = document.getElementById("textOUT").innerHTML + cur_msg
 				outLog += cur_msg
+			};
+			window.scrollTo(0, 0);
+
+			function show_main() {
+				document.getElementById('enterdiv').style.display = 'none';
+				document.body.style.background = '#f1f1f1';
+				window.scrollTo(0, 0);
+				document.getElementById('maindiv').style.display = 'block';
+				updateOut('\n( '+getCurrentDateTime()+' ) OPEN MAIN PAGE ');
 			};
 			
 			window.onscroll = function() { scrollFunction() };
@@ -375,6 +797,45 @@
 			function registerClickLink(visited_href) {
 				updateOut('\n( '+getCurrentDateTime()+' ) Visit link '+visited_href);
 			};
+
+			function registerHoverCard(hovered_card) {
+				var msg = '\n( '+getCurrentDateTime()+' ) Hover card '+hovered_card;
+				var submsg = 'Hover card '+hovered_card
+				if (outLog.substring(outLog.length-submsg.length) != submsg){
+					updateOut(msg);
+				}
+			};
+
+			var slideIndex = 1;
+			showSlides(slideIndex);
+
+			function plusSlides(n) {
+				showSlides(slideIndex += n);
+				updateOut('\n( '+getCurrentDateTime()+' ) Screenshot '+slideIndex+' (slider)');
+			}
+
+			function currentSlide(n) {
+				showSlides(slideIndex = n);
+				updateOut('\n( '+getCurrentDateTime()+' ) Screenshot '+slideIndex+' (demo)');
+			}
+
+			function showSlides(n) {
+			  var i;
+			  var slides = document.getElementsByClassName("mySlides");
+			  var dots = document.getElementsByClassName("demo");
+			  var captionText = document.getElementById("caption");
+			  if (n > slides.length) {slideIndex = 1}
+			  if (n < 1) {slideIndex = slides.length}
+			  for (i = 0; i < slides.length; i++) {
+				  slides[i].style.display = "none";
+			  }
+			  for (i = 0; i < dots.length; i++) {
+				  dots[i].className = dots[i].className.replace(" active", "");
+			  }
+			  slides[slideIndex-1].style.display = "block";
+			  dots[slideIndex-1].className += " active";
+			  captionText.innerHTML = dots[slideIndex-1].alt;
+			}
 
 			var sendButton = document.getElementById("js_send");
 			var form_id_js = "javascript_form";
