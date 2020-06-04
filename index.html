@@ -589,7 +589,7 @@
 									alt="L'application est hebergée sur <b style='font-size:18px;'>Binder</b>, les temps d'ouverture peuvent donc varier de quelques milliseconds à plusieurs minutes 
 									et cela depend d'un grand nombre de facteurs.
 									<b>Pas d'inquietudes, cette page est là pour t'entraitenir en attendant l'ouverture !</b>
-									<br>
+									<br><b style='font-size:18px;'> </b>
 									<br><b>ATTENTION</b> : Binder ferme la session après quelques minutes d'inactivité, veilles donc à ne pas laisser la carte en arrier plan trop long temps.
 									Si tu souhaites sourveiller l'ouverture tu peux choisir l'<b>ouverture dans un nouvel onglet</b> dans la liste deroulante.
 									<br>Lorsque un petit livre orange apparait dans le titre de l'onglet la carte est prête.">
@@ -599,15 +599,15 @@
 									alt="<b style='font-size:18px;'>La selection du pays</b> dans la liste deroulante centre la carte sur le pays. 
 									<br>Cette selection peut aussi être effectuée en <b>cliquant sur la carte</b> un point quelconque de la surface du pays souhaité.
 									<br>De plus, <b>lorsque une adresse est cherchée</b> (voir le slide suivant) cette selection est effectuée automatiquement si besoin.
-									<br>
+									<br><b style='font-size:18px;'> </b>
 									<br>L'application est construite pour la France en priorité, cependant la plus part des fonctionnalitées sont disponibles pour le monde entier.
-									Pour la France, l'app est enrichie par l'utilisation de la donnée OpenSource de la BAN (voir slide 5 et 9).
+									Pour la France, l'app est enrichie par l'utilisation de la donnée OpenSource de la BAN <b><i>(voir slides 4&5 et 9)</i></b>.
 									">
 								</div>
 								<div class="column">
 									<img class="demo cursor" src="https://www.dropbox.com/s/9xns9z3ft6ofzdq/img3_demo.png?raw=1" style="width:100%" onclick="currentSlide(3)" 
 									alt="<b style='font-size:18px;'>La recherche d'une adresse</b> peut être effectuée aussi bien par saisie que par click sur la carte.
-									<br>
+									<br><b style='font-size:18px;'> </b>
 									<br>Dans le premier cas, <b>l'adresse saisie</b> est traitée, à l'aide de services web de geocodage, lorsque le <b>buton Chercher</b> est cliqué. 
 									<br>La saisie peut être partielle, cependant pour tout pays autre que la France plus de precision peut être necessaire.
 									<br>Dans le deuxième cas, ce sont <b>les coordonnées de l'endroit cliqué</b> qui sont traitées à l'aide de services web de geocodage.
@@ -617,7 +617,7 @@
 									<img class="demo cursor" src="https://www.dropbox.com/s/ncgm3sr6ssjmgn9/img4_demo.png?raw=1" style="width:100%" onclick="currentSlide(4)" 
 									alt="Lorsque une recherche est effectuée, que ce soit par saisie ou par click, <b style='font-size:18px;'>le resultat à valider</b> est proposé.
 									<br>Si la recherche est effectué par <b>saisie</b>, le texte est enregistré pour reutilisation pendant la session.
-									<br>
+									<br><b style='font-size:18px;'> </b>
 									<br>Ce resultat incluent les adresses trouvées via deux <b>API de geocodage</b> mises à disposition par 
 									<br>OpenStreetMap et la Base Adresse Nationale France (BANFrance). 
 									<br>La ou les adresses trouvées sont representées par des <b>points sur la carte</b>. C'est point sont cliquables.">
@@ -626,30 +626,56 @@
 									<img class="demo cursor" src="https://www.dropbox.com/s/owbvsnpidgoc4oc/img5_demo.png?raw=1" style="width:100%" onclick="currentSlide(5)" 
 									alt="Lorsque une recherche est effectuée, que ce soit par saisie ou par click, <b style='font-size:18px;'>le buton Valider</b> remplace celui de recherche.
 									<br>Cela permet de visualiser le rayon pour l'adresse dans <b>la case à valider</b>. 
-									<br>
+									<br><b style='font-size:18px;'> </b>
 									<br>Si une seule adresse est trouvée elle est rentrée automatiquement dans la case à valider. 
 									<br>Autrement cette case peut être remplie soit en choisissant dans la <b>liste deroulante</b> soit en cliquant l'un des <b>points affichés</b> sur la carte.
-									<br>La liste reporte en premier les resultats BAN si l'app detecte que l'adresse est en France, ceux OpenStreetMap autrement.">
+									<br>La liste reporte en premier les resultats <b>BAN</b> si l'app detecte que l'adresse est en France, ceux <b>OpenStreetMap</b> autrement.">
 								</div>
 								<div class="column">
 									<img class="demo cursor" src="https://www.dropbox.com/s/m9qllhio830wx3q/img6_demo.png?raw=1" style="width:100%" onclick="currentSlide(6)" 
-									alt="<br><br>Step 6<br>Coming soon<br><br><br>">
+									alt="La validation d'une adresse trouvée centre et zoom la carte sur le point choisi et visualise <b style='font-size:18px;'>le rayon</b>.
+									<br>Le <b>rayon appliqué</b> est celui choisi par l'utilisateur, en kilomètres. 
+									<br>Dans cet exemple celui de default de 100km est utilisé.
+									Ce rayon peut être modifié à tout moment <b><i>(voir slide 8)</i></b>.
+									<br><b style='font-size:18px;'> </b>
+									<br>L'adresse est ainsi enregistrée comme <b>point de départ</b> pour les modules suivants. 
+									<br>La réussite de cet enregistrement est confirmée par un message de validation et le rétablissement du buton Chercher.">
 								</div>
 								<div class="column">
 									<img class="demo cursor" src="https://www.dropbox.com/s/d82g1gv1w2ch1wf/img7_demo.png?raw=1" style="width:100%" onclick="currentSlide(7)" 
-									alt="<br><br>Step 7<br>Coming soon<br><br><br>">
+									alt="En descendant sous la carte un <b style='font-size:18px;'>module de verification des destination</b> est disponible pour le monde entier.
+									<br><b style='font-size:18px;'> </b>
+									<br>Dans cet exemple il est montré le resultat obtenu par <b>saisie</b> de 'rue leger dreux' et click du button <b>Verifier</b>.
+									<br>L'app selectionne la première adresse trouvée et previent l'utilisateur si il ne s'agit pas de la seul adresse possible <b><i>(voir slide 8)</i></b>.
+									<br>Pour cette adresse, calcule la <b>distance à vol d'oiseau</b> avec l'adresse principale, rappellée dans un message de validation.
+									<br>L'app affiche donc si la destination est incluse ou pas dans le rayon, ainsi que la distance calculée.">
 								</div>
 								<div class="column">
 									<img class="demo cursor" src="https://www.dropbox.com/s/1k3b7h9jl6lrzs9/img8_demo.png?raw=1" style="width:100%" onclick="currentSlide(8)" 
-									alt="<br><br>Step 8<br>Coming soon<br><br><br>">
+									alt="<b>Toute saisie</b> dans les cases de recherche et verification est <b style='font-size:18px;'>proposée en option</b> pendant la session dans les <b>cases de recherche et validation</b>.
+									<b>Seulement les adresses</b> validées et selectionées pour verification sont proposées <b>aussi dans la verification</b>.
+									<br>
+									<br><b style='font-size:18px;'>Le rayon</b> peut être modifié à tout moment, en entrainant la modification du rayon visualisé sur la carte.
+									<br>Le nouveau rayon est aussi communiqué au module de verification. Cependant cela ne s'applique pas automatiquement à le dernière adresse verifiée.
+									Pour mettre à jour ce resultat suffit de Verifier l'adresse, dans la case si rien à été modifié ou dans la liste deroulante.">
 								</div>
 								<div class="column">
 									<img class="demo cursor" src="https://www.dropbox.com/s/xn0qy4ic0c7zslv/img9_demo.png?raw=1" style="width:100%" onclick="currentSlide(9)" 
-									alt="<br><br>Step 9<br>Coming soon<br><br><br>">
+									alt="<b style='font-size:18px;'>MODULE SPECIAL FRANCE</b>
+									<br>Lorsque l'<b>adresse principale</b> est <b>en France</b> l'app met à disposition ce module supplementaire.
+									<br>Cela permet de visualiser d'un coup d'oeil le volume et le détail des <b>destinations accessibles à 100km (rayon fixe)</b>.
+									<br><b style='font-size:18px;'> </b>
+									<br>Ce module utilise l'<b>OpenData</b> de la BANFrance, <em>une destination est donc ici une adresse française valide</em>.
+									<br>Un <b>traitement préalable de la donnée</b> a été necessaire pour reduir le volume de donnée en conservant toute l'information utile.">
 								</div>
 								<div class="column">
 									<img class="demo cursor" src="https://www.dropbox.com/s/d4utcf3husocw26/img10_demo.png?raw=1" style="width:100%" onclick="currentSlide(10)" 
-									alt="<br><br>Step 10<br>Coming soon<br><br><br>">
+									alt="<b style='font-size:18px;'>Ton activité</b> est enregistrée et reportée au pied de la page pour te permettre de voir où t'en es.
+									<br>Pour plus de lisibilité seulement les <b>5 dernieres</b> activitées sont affichées, heuredatées.
+									<br><b><em>Les informations enregistrées ne sont conservés que au cours de ta session et ne seront communiqués à personne.</em></b>
+									<br>
+									<br>Si tu souhaites plus de détails techniques, <b style='font-size:18px;'>un guide utilisateur pour experts</b> est disponible en version textuelle.
+									<br>Plus de détails sont aussi donnés dans les versions videos. <b><em>De plus un tutoriel est disponible, descends vite cet écran !</em></b>">
 								</div>
 							</div>
 						</div>
